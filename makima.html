@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Makima Aesthetic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- INTRO -->
+
+  <div id="intro-screen">
+
+    <div class="intro-content">
+
+      <span class="intro-small">
+        sound enabled experience
+      </span>
+
+      <button id="enter-btn">
+        ENTER
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- PLAYER -->
+
+  <div id="youtube-player"></div>
+
+  <!-- CONTENIDO -->
+
+  <main class="hero">
+
+    <div class="side-text">
+      CONTROL • SILENCE • DEVOTION
+    </div>
+
+    <span class="label">
+      Chainsaw Man Inspired
+    </span>
+
+    <h1 class="title">
+      MAKIMA
+    </h1>
+
+    <!-- IMAGEN -->
+
+    <a
+      href="https://www.tiktok.com/@caesena.ls/video/7641800985324621074"
+      target="_blank"
+      class="image-frame"
+    >
+
+      <img
+        src="https://i.pinimg.com/736x/8b/07/cc/8b07cc609db1ff0488b3058dac57f233.jpg"
+        alt="Makima"
+      >
+
+      <div class="overlay">
+        <span>Ver Video</span>
+      </div>
+
+    </a>
+
+    <div class="line"></div>
+
+    <p class="description">
+      Elegancia fría, presencia dominante y una estética minimalista inspirada en Makima.
+      El diseño dirige toda la atención hacia la imagen central con tonos oscuros,
+      rojos profundos y una atmósfera cinematográfica.
+    </p>
+
+    <!-- MUSIC PLAYER -->
+
+    <a
+      class="music-player"
+      href="https://www.youtube.com/watch?v=3KnHgNT7Dd4"
+      target="_blank"
+    >
+
+      <div class="music-visual">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+      <div class="music-info">
+
+        <span class="music-label">
+          now playing
+        </span>
+
+        <span class="music-name">
+          Blackbear — Hot Girl Bummer
+        </span>
+
+      </div>
+
+    </a>
+
+  </main>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const enterBtn = document.getElementById("enter-btn");
+    const introScreen = document.getElementById("intro-screen");
+
+    const videoID = "3KnHgNT7Dd4";
+
+    let player;
+
+    const tag = document.createElement("script");
+
+    tag.src = "https://www.youtube.com/iframe_api";
+
+    document.body.appendChild(tag);
+
+    function onYouTubeIframeAPIReady() {
+
+      player = new YT.Player("youtube-player", {
+
+        height: "1",
+        width: "1",
+
+        videoId: videoID,
+
+        playerVars: {
+
+          autoplay: 0,
+          controls: 0,
+          loop: 1,
+          playlist: videoID,
+          modestbranding: 1,
+          rel: 0,
+          fs: 0
+
+        }
+
+      });
+
+    }
+
+    enterBtn.addEventListener("click", () => {
+
+      introScreen.classList.add("hide");
+
+      if (player) {
+
+        player.setVolume(40);
+
+        player.playVideo();
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
